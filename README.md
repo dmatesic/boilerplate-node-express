@@ -29,11 +29,11 @@ Boilerplate for a Node/Express server with Mocha and Babel/ES2015.
 
 ### NPM Scripts
 
-**lint** runs eslint
-**lint:watch** runs eslint with restart on file change
-**test** runs mocha tests
-**test:watch** runs mocha tests with restart on file change
-**start** runs node server
-**start:watch** runs node server with restart on file change
-**dev** runs lint:watch, test:watch, and start:watch simultaneously
-**postinstall** installs client node modules and runs client webpack script
+**lint** runs eslint  
+**lint:watch** runs eslint with restart on file change  
+**test** runs mocha tests  
+**test:watch** runs mocha tests with restart on file change  
+**start** runs node server  
+**start:watch** runs node server with restart on file change  
+**dev** runs lint:watch, test:watch, and start:watch simultaneously  
+**postinstall** installs client node modules and runs client webpack script  
