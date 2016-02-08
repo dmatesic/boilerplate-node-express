@@ -1,0 +1,45 @@
+{
+  "name": "boilerplate-node-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint start.js src/** test/** --config .eslintrc",
+    "lint:watch": "nodemon --exec \"npm run lint --silent\"",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --require ./test/helper.js",
+    "test:watch": "npm run test -- --watch",
+    "start": "node index.js",
+    "start:watch": "nodemon --exec \"npm start\"",
+    "dev": "node ./node_modules/parallelshell/index.js \"npm run lint:watch\" \"npm run test:watch\" \"npm run start:watch\"",
+    "//postinstall": "cd client && npm install && webpack -p --config webpack.prod.config.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "keywords": [],
+  "author": "Domenic Matesic",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "webpack": "^1.12.6",
+    "winston": "^2.1.1",
+    "winston-loggly": "^1.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "dirty-chai": "^1.2.2",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.0.0",
+    "mocha": "^2.3.4",
+    "nodemon": "^1.8.1",
+    "parallelshell": "^2.0.0",
+    "supertest": "^1.1.0"
+  }
+}
