@@ -37,8 +37,8 @@ Boilerplate for a Node/Express server with Mocha and Babel/ES2015.
 
 ### NPM Scripts (root)
 
-**postinstall** builds the project in /server
-**server** runs server command (e.g. npm run server -- test:watch)
+**postinstall** builds the project in /server  
+**server** runs server command (e.g. npm run server -- test:watch)  
 
 ### NPM Scripts (/server)
 
