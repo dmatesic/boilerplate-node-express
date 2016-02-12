@@ -1,18 +1,14 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai';
 import request from 'supertest';
-import app from '../start';
+import app from '../src/index';
 
 describe('server routes', () => {
   it('GET /', function it(done) {
     // NOTE: Sometimes the first request(app) call fails with 404.. not sure why, this little hack fixes the issue
     request(app)
     .get('/')
-    .end(function end() {
-      request(app)
-      .get('/')
-      .expect(200, done);
-    });
+    .expect(200, done);
   });
 
   it('GET favicon', function it(done) {

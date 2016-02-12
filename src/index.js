@@ -2,11 +2,12 @@ import _ from 'lodash';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
+import path from 'path';
 import util from 'util';
-import config from './src/config.js';
-import { LEVEL, log } from './src/logger.js';
-import * as core from './src/core.js';
-import * as router from './src/router.js';
+import config from './config.js';
+import { LEVEL, log } from './logger.js';
+import * as core from './core.js';
+import * as router from './router.js';
 
 const app = express();
 export default app;
@@ -29,7 +30,7 @@ function startServer() {
   // (Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response)
   app.use(cors());
 
-  app.use(express.static('client/dist'));
+  app.use(express.static(path.join(__dirname, '../client/dist')));
 
   router.init(app);
 
@@ -49,7 +50,7 @@ function startServer() {
 
   // NOTE: Make sure mocha tests don't listen “twice”, one time in the test and one time here
   // See http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
-  if (module.parent.id === '.') {
+  if (module.id === '.') {
     app.listen(config.express.port, function listen() {
       log({ message: util.format('Express server listening on port %d in %s mode', config.express.port, config.env) });
     });
