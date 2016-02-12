@@ -21,13 +21,26 @@ Boilerplate for a Node/Express server with Mocha and Babel/ES2015.
 │  |   └── helper.js            # Mocha setup
 │  ├── .babelrc                 # Babel config
 │  ├── .eslintrc                # ESLINT config
-│  └── package.json             # Manages npm packages 
+│  └── package.json             # Manages server npm packages 
 |  .gitignore                   # Git ignore
+|  package.json                 # Manages global npm script  
 |  Procfile                     # Heroku config
 |  README.md                    # Project info
 ```
 
-### NPM Scripts
+### Installation
+
+1. git clone https://github.com/dmatesic/boilerplate-node-express  
+2. cd boilerplate-node-express  
+3. npm install  
+4. npm run server -- start
+
+### NPM Scripts (root)
+
+**postinstall** builds the project in /server
+**server** runs server command (e.g. npm run server -- test:watch)
+
+### NPM Scripts (/server)
 
 **build** builds the project into dist/  
 **lint** runs eslint  

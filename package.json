@@ -1,0 +1,15 @@
+{
+  "name": "boilerplate-node-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/dist/index.js",
+  "scripts": {
+    "postinstall": "cd server && npm install",
+    "server": "cd server && npm run"
+  },
+  "keywords": [],
+  "author": "Domenic Matesic",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
