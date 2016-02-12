@@ -30,7 +30,7 @@ function startServer() {
   // (Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response)
   app.use(cors());
 
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+  app.use(express.static(path.join(__dirname, '../../client/dist')));
 
   router.init(app);
 
