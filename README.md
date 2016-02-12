@@ -28,7 +28,7 @@ Boilerplate for a Node/Express server with Mocha and Babel/ES2015.
 
 ### NPM Scripts
 
-**build** builds the project into dist/
+**build** builds the project into dist/  
 **lint** runs eslint  
 **lint:watch** runs lint with restart on file change  
 **test** runs mocha tests  
