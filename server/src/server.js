@@ -1,6 +1,7 @@
 import { isFunction } from 'lodash';
 import bodyParser from 'body-parser';
 import express from 'express';
+import morgan from 'morgan';
 import { join } from 'path';
 import util from 'util';
 import config from './config.js';
@@ -19,17 +20,8 @@ function open(opts, serverIsOpen) {
   host = opts.host || config.express.host;
   port = opts.port || config.express.port;
 
-  // Log each request
-  app.use((req, res, next) => {
-    log({
-      message: util.format(
-        '%s requested for %s',
-        req.method,
-        req.url
-      ),
-    });
-    next();
-  });
+  // Log each request (console only)
+  app.use(morgan('dev'));
 
   // Handle request body
   app.use(bodyParser.json({ limit: '50mb' }));

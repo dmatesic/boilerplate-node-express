@@ -6,7 +6,6 @@ import { server } from '../../src/server';
 
 expressTestingSuite('server routes', () => {
   it('GET /', function it(done) {
-    // NOTE: Sometimes the first request(app) call fails with 404.. not sure why, this little hack fixes the issue
     request(server)
     .get('/')
     .expect(200, done);
