@@ -1,6 +1,6 @@
 import winston from 'winston';
 // import 'winston-loggly';
-import config from './config.js';
+import config from './../config.js';
 
 const logger = new (winston.Logger)({});
 

@@ -4,7 +4,7 @@ export function init() {
   });
 }
 
-export function getTestData() {
+export function get() {
   return [{
     firstName: 'Troy',
     lastName: 'Smith',

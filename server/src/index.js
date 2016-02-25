@@ -5,9 +5,9 @@ import express from 'express';
 import path from 'path';
 import util from 'util';
 import config from './config.js';
-import { LEVEL, log } from './logger.js';
-import * as core from './core.js';
-import * as router from './router.js';
+import { LEVEL, log } from './lib/logger.js';
+import * as core from './controllers/core.js';
+import * as routes from './routes';
 
 const app = express();
 export default app;
@@ -32,7 +32,7 @@ function startServer() {
 
   app.use(express.static(path.join(__dirname, '../../client/dist')));
 
-  router.init(app);
+  routes.init(app);
 
   // Error handling middleware
   // NOTE: next needs to be defined for express error handling to work, but it is also an unused var

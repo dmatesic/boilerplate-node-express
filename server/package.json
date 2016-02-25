@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/babel src -d dist",
     "lint": "./node_modules/.bin/eslint index.js src/** test/** --config .eslintrc",
     "lint:watch": "nodemon --exec \"npm run lint --silent\" --ignore dist",
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --require ./test/helper.js",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --require ./test/helper.js test/**/*spec.js",
     "test:watch": "nodemon --exec \"npm run test --silent\" --ignore dist/",
     "start": "npm run build && node dist/index.js",
     "start:watch": "nodemon --exec \"npm start\" --ignore dist/",
