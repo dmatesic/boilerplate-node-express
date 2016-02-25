@@ -29,6 +29,15 @@ export function init(app) {
     res.status(204).end();
   });
 
+  app.patch('/api/contacts/:id', (req, res) => {
+    controller.patch({
+      id: req.params.id,
+      body: req.body,
+    });
+
+    res.status(204).end();
+  });
+
   app.delete('/api/contacts/:id', (req, res) => {
     controller.remove(req.params.id);
 

@@ -85,6 +85,32 @@ expressTestingSuite('server routes', () => {
     });
   });
 
+  it('patch a contact', (done) => {
+    request(server)
+    .patch(contactLocation)
+    .send({
+      phoneNumber: '201-987-1235',
+    })
+    .expect(204, done);
+  });
+
+  it('get a contact after patch', (done) => {
+    request(server)
+    .get(contactLocation)
+    .expect(200)
+    .end((err, res) => {
+      expect(err).to.not.exist();
+      expect(res).to.exist();
+      expect(res.body).to.exist();
+      expect(res.body.firstName).to.exist();
+      expect(res.body.firstName).to.equal('Test2');
+      expect(res.body.phoneNumber).to.exist();
+      expect(res.body.phoneNumber).to.equal('201-987-1235');
+
+      done();
+    });
+  });
+
   it('delete a contact', (done) => {
     request(server)
     .delete(contactLocation)

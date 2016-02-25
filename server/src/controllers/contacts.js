@@ -1,4 +1,7 @@
+// TODO: Error handling
+
 import faker from 'faker';
+import { merge } from 'lodash';
 import uuid from 'node-uuid';
 
 const contacts = {};
@@ -25,6 +28,10 @@ export function get(id) {
 
 export function update({ id, body }) {
   contacts[id] = body;
+}
+
+export function patch({ id, body }) {
+  contacts[id] = merge(contacts[id], body);
 }
 
 export function remove(id) {
