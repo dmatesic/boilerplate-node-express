@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import morgan from 'morgan';
 import { join } from 'path';
-import util from 'util';
 import config from './config.js';
 import * as exception from './lib/exception';
 import { LEVEL, log } from './lib/logger.js';
@@ -50,14 +49,14 @@ function open(opts, serverIsOpen) {
   });
 
   server = app.listen(port, host, () => {
-    log({ message: util.format('Express server on %s:%s in %s mode LISTENING', host, port, config.env) });
+    log({ message: `Express server on ${host}:${port} in ${config.env} mode LISTENING` });
     if (isFunction(serverIsOpen)) serverIsOpen();
   });
 }
 
 export function close() {
   if (server) {
-    log({ message: util.format('Express server on %s:%s in %s mode CLOSED', host, port, config.env) });
+    log({ message: `Express server on ${host}:${port} in ${config.env} mode CLOSED` });
 
     host = null;
     port = null;
