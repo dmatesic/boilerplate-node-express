@@ -1,7 +1,7 @@
 import * as controller from '../controllers/core.js';
 
 export function init(app) {
-  app.get('/favicon.ico', function get(req, res) {
+  app.get('/favicon.ico', (req, res) => {
     res.status(204).end();
   });
 
