@@ -10,19 +10,30 @@ Boilerplate for a Node/Express server with Mocha and Babel/ES2015.
 │  └── dist                     # Public folder
 │      └── index.html           # Application start page
 ├──server                       # Server side code
-│  └── src                      # Server side code
+│  ├── src                      # Source code folder
+│  |   ├── controllers          # Application logic folder 
+|  |   |   ├── contacts.js      # Contacts controller
+|  |   |   └── index.js         # Provides init functionality for controllers
+│  |   ├── lib                  # Shared modules
+|  |   |   ├── exception.js     # Custom exceptions
+|  |   |   └── logger.js        # Handles logging
+│  |   ├── routes               # Route definitions
+|  |   |   ├── contacts.js      # /contacts route handling
+|  |   |   └── index.js         # Provides init functionality for routes
 │  |   ├── config.js            # Configuration
-│  |   ├── core.js              # Core functionality
-│  |   ├── index.js             # Entry script, starts node server
-│  |   ├── logger.js            # Winston logging to console/loggly
-│  |   └── router.js            # Express route functions
-│  ├── test                     # Test code
-│  |   ├── express_app_spec.js  # Mocha tests for express app
-│  |   └── helper.js            # Mocha setup
+│  |   ├── index.js             # Project start file
+│  |   ├── server.js            # Setup for express server
+│  ├── test                     # Test folder
+│  |   ├── routes               # Route tests
+|  |   |   └── contact_spec.js  # Tests for contacts route
+│  |   ├── server               # Server tests
+|  |   |   └── server_spec.js   # Tests for server
+│  |   └── helper.js            # Helper functions
 │  ├── .babelrc                 # Babel config
 │  ├── .eslintrc                # ESLINT config
 │  └── package.json             # Manages server npm packages 
 |  .gitignore                   # Git ignore
+|  npm-shrinkwrap.json          # Lock down NPM dependencies 
 |  package.json                 # Manages global npm script  
 |  Procfile                     # Heroku config
 |  README.md                    # Project info
@@ -51,5 +62,5 @@ Boilerplate for a Node/Express server with Mocha and Babel/ES2015.
 **start:watch** runs start with restart on file change  
 **start:dev** starts babel-node server  
 **start:dev:watch** runs start:dev with restart on file change  
-**dev** runs lint:watch, test:watch, and start:watch simultaneously  
+**dev** runs lint:watch and test:watch simultaneously  
 **postinstall** installs client node modules and runs client webpack script  
