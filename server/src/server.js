@@ -6,7 +6,7 @@ import { join } from 'path';
 import config from './config.js';
 import * as exception from './lib/exception';
 import { LEVEL, log } from './lib/logger.js';
-import * as routes from './routes';
+import { init as initRoutes } from './routes';
 import { init as initControllers } from './controllers/index.js';
 
 let host;
@@ -31,8 +31,13 @@ function open(opts, serverIsOpen) {
   // Serve API documentation
   app.use('/doc', express.static(join(__dirname, '../doc')));
 
+  // Ignore favicon requests
+  app.get('/favicon.ico', (req, res) => {
+    res.sendStatus(204);
+  });
+
   // Serve API routes
-  routes.init(app);
+  initRoutes(app);
 
   // Error handling middleware
   // NOTE: next needs to be defined for express error handling to work, but it is also an unused var

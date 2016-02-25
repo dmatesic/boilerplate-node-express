@@ -1,5 +1,5 @@
-import * as core from './core';
+import * as contacts from './contacts';
 
 export function init(app) {
-  core.init(app);
+  contacts.init(app);
 }
