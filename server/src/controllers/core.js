@@ -1,11 +1,7 @@
-export function init() {
-  return new Promise(function promise(resolve) {
-    resolve();
-  });
-}
+let testData = [];
 
-export function get() {
-  return [{
+export function init() {
+  testData = [{
     firstName: 'Troy',
     lastName: 'Smith',
   }, {
@@ -15,4 +11,8 @@ export function get() {
     firstName: 'JT',
     lastName: 'Barrett',
   }];
+}
+
+export function get() {
+  return testData;
 }
